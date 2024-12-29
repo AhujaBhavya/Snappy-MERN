@@ -22,6 +22,10 @@ mongoose
     console.log(err.message);
   });
 
+app.get("/", (req, res) => {
+  res.send("Backend is working");
+});
+
  app.use("/api/auth", userRoutes);
  app.use("/api/messages", messagesRoute);
 
