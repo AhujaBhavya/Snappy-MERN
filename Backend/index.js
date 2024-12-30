@@ -7,6 +7,16 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
+app.use((req, res, next) => {
+  console.log('Request Origin:', req.get('Origin'));
+  next();
+});
+
+const corsOptions = {
+  origin: process.env.CLIENT_URL, 
+  credentials: true,
+};
+
 app.use(cors());
 app.use(express.json());
 
